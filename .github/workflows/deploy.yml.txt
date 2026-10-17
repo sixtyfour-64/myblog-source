@@ -1,0 +1,27 @@
+name: Hexo Auto Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install dependencies and build
+        run: |
+          npm install
+          npm install hexo-cli -g
+          hexo clean && hexo generate
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.HEXO_DEPLOY_PAT }}
+          external_repository: sixtyfour-64/sixtyfour-64.github.io
+          publish_branch: main
+          publish_dir: ./public
