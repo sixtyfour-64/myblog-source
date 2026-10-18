@@ -3,7 +3,9 @@ title: 记录1
 tags: 记录
 ---
 
+``` bash
 $ 测试
+```
 
 <div align="center">
 <strong>静夜思</strong><br></br>
