@@ -4,7 +4,7 @@ tags: 记录
 ---
 
 ``` bash
-$ 测试
+$ 为什么从外面看和点进去看不一样
 ```
 
 <div align="center">
